@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+ 
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: #3a3a3a;
+  background: #f9f0f0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+ 
+
+body > table {
+  background: #ffffff;
+  max-width: 800px;
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 8px 40px rgba(180, 100, 110, 0.12);
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+}
+ 
+
+body > table::before,
+body > table::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+body > table::before {
+  width: 280px;
+  height: 280px;
+  top: -80px;
+  left: -80px;
+  background: radial-gradient(circle at 60% 60%, #f2c4c4 0%, #f5d5d5 50%, transparent 75%);
+  opacity: 0.75;
+}
+ 
+
+body > table::after {
+  width: 300px;
+  height: 300px;
+  bottom: -90px;
+  right: -60px;
+  background: radial-gradient(circle at 40% 40%, #f2c4c4 0%, #f5d5d5 50%, transparent 75%);
+  opacity: 0.70;
+}
+
+
+body > table td {
+  position: relative;
+  z-index: 1;
+}
+ 
+
+body > table > tbody > tr > td:first-child {
+  width: 42%;
+  padding: 48px 28px 48px 40px;
+  border-right: 1px solid #f0e0e0;
+  vertical-align: top;
+}
+ 
+body > table > tbody > tr > td:last-child {
+  width: 58%;
+  padding: 48px 40px 48px 32px;
+  vertical-align: top;
+}
+ 
+
+img[alt="Фото"] {
+  width: 170px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 18px rgba(180, 100, 110, 0.18);
+}
+ 
+
+h1 {
+  font-family: "Gochi Hand", cursive, serif;
+  font-weight: 300;
+  font-size: 36px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #2c2c2c;
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+ 
+
+h1 + p {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 30px;
+}
+ 
+h1 + p strong {
+  font-weight: 400;
+}
+
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #3a3a3a;
+  margin-bottom: 14px;
+  margin-top: 28px;
+}
+
+td h2:first-of-type {
+  margin-top: 0;
+}
+ 
+
+hr {
+  border: none;
+  border-top: 1px solid #f0e0e0;
+  margin: 22px 0;
+}
+ 
+
+p {
+  line-height: 1.7;
+  margin-bottom: 10px;
+  color: #4a4a4a;
+}
+ 
+p strong {
+  font-weight: 600;
+  color: #2c2c2c;
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ 
+ul li {
+  padding: 3px 0;
+  line-height: 1.65;
+  color: #4a4a4a;
+  position: relative;
+  padding-left: 14px;
+}
+ 
+ul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: #c9a0a0;
+}
+ 
+
+h2[data-section="movy"] + ul li::before,
+
+td:first-child ul li::before {
+  content: '';
+  padding-left: 0;
+}
+ 
+td:first-child ul li {
+  padding-left: 0;
+  display: flex;
+  gap: 6px;
+}
+ 
+
+td:first-child p {
+  font-size: 12.5px;
+}
+ 
+
+td p {
+  margin: 30px 0px 0 0;
+  padding: 0;
+}
+ 
+
+td:last-child p strong:first-child {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: #b07070;
+  margin-bottom: -10px;
+
+}
+ 
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ 

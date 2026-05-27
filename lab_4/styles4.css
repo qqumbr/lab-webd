@@ -1,0 +1,258 @@
+:root {
+  --bg: #f5f5f5;
+  --text: #1a1a1a;
+  --card: #ffffff;
+  --border: #ddd;
+  --accent: #5c6bc0;
+  --footer-bg: #e8e8e8;
+  --footer-text: #444;
+  --modal-bg: rgba(0,0,0,0.45);
+}
+
+body.night {
+  --bg: #121212;
+  --text: #e0e0e0;
+  --card: #1e1e1e;
+  --border: #333;
+  --accent: #90caf9;
+  --footer-bg: #1a1a1a;
+  --footer-text: #aaa;
+  --modal-bg: rgba(0,0,0,0.7);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* Header */
+
+header {
+  background: var(--accent);
+  color: #fff;
+  padding: 40px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 30px;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+#toggleTheme {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#toggleTheme:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Main */
+
+main {
+  flex: 1;
+  max-width: 800px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+section {
+  margin-bottom: 48px;
+}
+
+section h2 {
+  font-size: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+
+/* Comments */
+
+.comment-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+}
+
+.c-name {
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.c-email {
+  font-size: 12px;
+  color: var(--footer-text);
+  margin-bottom: 8px;
+}
+
+.c-body {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+#commentsError {
+  color: #e57373;
+  font-size: 13px;
+}
+
+/* Footer */
+
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 40px 32px;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+footer h3 {
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fill, minmax(260px, 1fr));
+  gap: 4px 24px;
+}
+
+.info-row {
+  display: flex;
+  gap: 6px;
+}
+
+.info-key {
+  color: var(--accent);
+  min-width: 120px;
+}
+
+/* Modal */
+
+#modalOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--modal-bg);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+#modalOverlay.active {
+  display: flex;
+}
+
+#modal {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+}
+
+#modal h2 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: var(--accent);
+}
+
+#closeModal {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: var(--footer-text);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+}
+
+#sendBtn {
+  width: 100%;
+  padding: 10px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#sendBtn:hover {
+  opacity: 0.85;
+}
+
+#formMsg {
+  margin-top: 10px;
+  font-size: 13px;
+  text-align: center;
+  color: #66bb6a;
+}

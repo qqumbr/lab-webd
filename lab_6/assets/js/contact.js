@@ -1,5 +1,3 @@
-console.log('contact.js loaded');
-
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contactForm');
 
@@ -10,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    e.stopImmediatePropagation();
 
     const submitBtn = form.querySelector('button[type="submit"]');
     if (submitBtn) submitBtn.disabled = true;
@@ -26,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify(data)
       });
 
-      // IMPORTANT: handle both JSON and plain text safely
       const contentType = response.headers.get('content-type');
 
       let result;

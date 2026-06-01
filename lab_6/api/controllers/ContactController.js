@@ -1,6 +1,4 @@
-console.log('MY_EMAIL:', process.env.MY_EMAIL);
-console.log('BREVO_API_KEY exists:', !!process.env.BREVO_API_KEY);
-console.log('BREVO_API_KEY first 15 chars:', process.env.BREVO_API_KEY?.slice(0,15));
+console.log('contact route hit');
 
 const axios = require('axios');
 
@@ -10,7 +8,7 @@ module.exports = {
     const { name, email, subject, message } = req.body;
 
     if (!name || !email || !subject || !message) {
-      return res.badRequest({ error: 'All fields are required.' });
+      return res.badRequest({ error: 'Всі поля є обов\'язковими.' });
     }
 
     try {
@@ -18,7 +16,7 @@ module.exports = {
         'https://api.brevo.com/v3/smtp/email',
         {
           sender: {
-            name: 'Portfolio Website',
+            name: 'Лабораторна робота 6',
             email: process.env.MY_EMAIL
           },
           to: [{ email: process.env.MY_EMAIL }],
@@ -28,20 +26,19 @@ module.exports = {
         {
           headers: {
             'api-key': process.env.BREVO_API_KEY,
-            'Content-Type': 'application/json'
+            'content-type': 'application/json'
           }
         }
       );
 
-      return res.json({ success: true, message: 'Email sent!' });
+      return res.json({ success: true });
 
-    } catch (err) {
-  console.error('BREVO ERROR:');
-  console.error(err.response?.data || err.message || err);
-
-  return res.serverError({
-    error: err.response?.data || err.message || 'Failed to send email'
-      });
+    }catch (err) {
+  
+        console.error('Error sending email:', err.response?.data || err.message);
+       return res.serverError({
+       error: err.response?.data || err.message
+    });
     }
   }
 };
